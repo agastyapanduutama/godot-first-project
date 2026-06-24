@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cdswioyn3idhi"]
 
 [ext_resource type="PackedScene" uid="uid://capjvai8kvii8" path="res://screen/player.tscn" id="1_4jydo"]
+[ext_resource type="Script" uid="uid://c8fvt0dx3np7c" path="res://script/game_manager.gd" id="1_kxo0n"]
 [ext_resource type="Texture2D" uid="uid://xfsslnqyj6qq" path="res://assets/sprites/world_tileset.png" id="2_bywrr"]
 [ext_resource type="PackedScene" uid="uid://cfeyvthik3wng" path="res://screen/platform.tscn" id="3_dbgjb"]
 [ext_resource type="PackedScene" uid="uid://dtefk3ycroon1" path="res://screen/coin.tscn" id="4_qnl5b"]
 [ext_resource type="PackedScene" uid="uid://bs53xxtbkmjw" path="res://screen/killzone.tscn" id="5_0o27u"]
 [ext_resource type="PackedScene" uid="uid://ctiln7jevakx0" path="res://screen/enemy.tscn" id="6_mrx88"]
+[ext_resource type="FontFile" uid="uid://b5lkcwe851lkl" path="res://assets/fonts/PixelOperator8.ttf" id="7_s46qo"]
+[ext_resource type="AudioStream" uid="uid://bcao71u4qp4st" path="res://assets/music/time_for_adventure.mp3" id="9_2ur44"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbgjb"]
 texture = ExtResource("2_bywrr")
@@ -213,6 +216,20 @@ _data = {
 
 [node name="Game" type="Node2D" unique_id=476421790]
 
+[node name="GameManager" type="Node" parent="." unique_id=2098585526]
+unique_name_in_owner = true
+script = ExtResource("1_kxo0n")
+
+[node name="LabelForScore" type="Label" parent="GameManager" unique_id=1108736827]
+offset_left = 136.0
+offset_top = -301.0
+offset_right = 222.0
+offset_bottom = -278.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_s46qo")
+theme_override_font_sizes/font_size = 8
+text = "Total Score"
+
 [node name="Player" parent="." unique_id=1117922969 instance=ExtResource("1_4jydo")]
 position = Vector2(12, -1)
 collision_layer = 2
@@ -286,3 +303,42 @@ autoplay = &"RESET"
 
 [node name="Enemy" parent="Enemy Group" unique_id=372281809 instance=ExtResource("6_mrx88")]
 position = Vector2(360, 21)
+
+[node name="Label Group" type="Node" parent="." unique_id=1088808138]
+
+[node name="Label" type="Label" parent="Label Group" unique_id=1518236473]
+offset_left = -105.0
+offset_top = -59.0
+offset_right = -12.0
+offset_bottom = -36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_s46qo")
+theme_override_font_sizes/font_size = 8
+text = "space for jump"
+
+[node name="Label3" type="Label" parent="Label Group" unique_id=1632353592]
+offset_left = 119.0
+offset_top = -90.0
+offset_right = 220.0
+offset_bottom = -67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_s46qo")
+theme_override_font_sizes/font_size = 8
+text = "A and D for move"
+
+[node name="Label2" type="Label" parent="Label Group" unique_id=1657140525]
+offset_left = 349.0
+offset_top = -39.0
+offset_right = 496.0
+offset_bottom = -16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_s46qo")
+theme_override_font_sizes/font_size = 8
+text = "monster not attack"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2171303]
+visible = false
+position = Vector2(136, -301)
+stream = ExtResource("9_2ur44")
+autoplay = true
+bus = &"Music"
