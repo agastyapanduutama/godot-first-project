@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bs53xxtbkmjw" path="res://screen/killzone.tscn" id="5_0o27u"]
 [ext_resource type="PackedScene" uid="uid://ctiln7jevakx0" path="res://screen/enemy.tscn" id="6_mrx88"]
 [ext_resource type="FontFile" uid="uid://b5lkcwe851lkl" path="res://assets/fonts/PixelOperator8.ttf" id="7_s46qo"]
-[ext_resource type="AudioStream" uid="uid://bcao71u4qp4st" path="res://assets/music/time_for_adventure.mp3" id="9_2ur44"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbgjb"]
 texture = ExtResource("2_bywrr")
@@ -335,10 +334,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_s46qo")
 theme_override_font_sizes/font_size = 8
 text = "monster not attack"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2171303]
-visible = false
-position = Vector2(136, -301)
-stream = ExtResource("9_2ur44")
-autoplay = true
-bus = &"Music"
